@@ -4,9 +4,7 @@ A simple and visually appealing payment form created using HTML and CSS. This pr
 
 ## 📸 Screenshot
 
-*It's a great idea to add a screenshot of your project here!*
-
-![Payment Form Screenshot](placeholder.png)
+!Payment Form [Oerview](placeholder.png)
 
 *(To add a screenshot: take a picture of your running application, add it to your project folder, and change `placeholder.png` to your image's filename.)*
 
@@ -24,7 +22,7 @@ A simple and visually appealing payment form created using HTML and CSS. This pr
 
 ## 🚀 How to Use
 
-To view this project, you can either:
+Project is In under progress of development.
 
 1.  **Clone the repository:**
     ```bash
@@ -33,6 +31,4 @@ To view this project, you can either:
 2.  Navigate to the project directory.
 3.  Open the `index.html` file in your favorite web browser.
 
----
-
-*This README was generated with the help of Gemini Code Assist.*
+--_(●'◡'●)

@@ -5,7 +5,7 @@ A simple and visually appealing payment form created using HTML and CSS. This pr
 ## 📸 Screenshot
 Payment Form.
 
-![Oerview](preview.png)
+![Oerview](IMAGE/preview.png)
 
 ## ✨ Features
 

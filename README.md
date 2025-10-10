@@ -4,7 +4,7 @@ A simple and visually appealing payment form created using HTML and CSS. This pr
 
 ## 📸 Screenshot
 
-Payment Form ![Oerview](placeholder.png)
+Payment Form [Oerview] ![ ](preview.png)
 
 *(To add a screenshot: take a picture of your running application, add it to your project folder, and change `placeholder.png` to your image's filename.)*
 

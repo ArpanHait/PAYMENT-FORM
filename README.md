@@ -3,10 +3,9 @@
 A simple and visually appealing payment form created using HTML and CSS. This project demonstrates fundamental web development techniques to build a clean and modern user interface for a payment gateway.
 
 ## 📸 Screenshot
+Payment Form.
 
-Payment Form ![Oerview](preview.png)
-
-*(To add a screenshot: take a picture of your running application, add it to your project folder, and change `placeholder.png` to your image's filename.)*
+![Oerview](preview.png)
 
 ## ✨ Features
 
@@ -31,4 +30,4 @@ Project is In under progress of development.
 2.  Navigate to the project directory.
 3.  Open the `index.html` file in your favorite web browser.
 
---_                                                             ._-(●'◡'●)_-.
+--_(●'◡'●)_-.

@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAYMENT FORM</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
 </head>
 <body>
    <div class="form-container">
     <form action="">
       <div class="top_section">
-     <h1 ><b>PAY FAST</b></h1>
-     <p class="powered_section">Powred By Ar.®</p>
+     <h1><b>PAY FAST</b></h1>
+     <p class="powered_section">Powred By Arp.®</p>
      </div>
      <h2>CONTACT INFORMATION</h2>
      <p>NAME: <input type="text" name="name" required ></p>
@@ -29,13 +30,12 @@
         </div>
      </fieldset>
 
-     <p>
-        ADDRESS: <textarea name="address" id="" cols="70" rows="6"></textarea> </p>
+     <p> ADDRESS: <textarea name="address" id="" cols="70" rows="6"></textarea> </p>
         <div class="input-group contact-details">
-     <P>EMAIL: <input type="email" name="email" id="" required> </P>
-     <p>PINCODE: <input type="number" name="pincode" id="" required></p>
-     <p>NUMBER: <input type="number" name="mobile number" id="" required></p>
-     <p>HOUSE NO: <input type="number" name="house number" id="" required></p>
+     <P class="EMAIL">EMAIL: <input type="email" name="email" id="" required></P>
+     <p class="PINCODE">PINCODE: <input type="number" name="pincode" id="" required></p>
+     <p class="NUMBER">NUMBER: <input type="number" name="mobile number" id="" required></p>
+     <p class="HOUSE-NO">HOUSE NO: <input type="number" name="house number" id="" required></p>
      </div>
 
      <h2>CARD INFORMATION</h2>
@@ -62,11 +62,11 @@
      <fieldset>
       <legend><i>IMPORTENT INFORMATION *</i></legend>
       <div class="input-group">
-     <p>CARD NUMBER: <input type="number" name="card number" id="" required>*
-      CVV: <input type="password" name="CVV" id="" required>*</p>
+     <p>CARD NUMBER: <input type="number" name="card number" id="" required>*</p>
+      <p>CVV: <input type="password" name="CVV" id="" required>*
+      EXPIRE DATE: <input type="date" name="expire_date" id=""></INPUT></p>
      </div>
      </fieldset>
-     <p>EXPIRE DATE: <input type="date" name="expire_date" id=""></INPUT></p>
       <input type="submit" value="SUBMIT FORM">
     </form>
 </div>  

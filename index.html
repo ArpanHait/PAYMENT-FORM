@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+   <div class="form-container">
     <form action="">
       <div class="top_section">
      <h1 ><b>PAY FAST</b></h1>
@@ -15,22 +16,31 @@
      <h2>CONTACT INFORMATION</h2>
      <p>NAME: <input type="text" name="name" required ></p>
 
-     <fieldset>
-        <legend><i>CHOOSE GENDER</i></legend>
-     <p>
-        MALE:<input type="radio" name="gender" id="" required>
-        FEMALE:<input type="radio" name="gender" id="" required>
-        OTHER:<input type="radio" name="gender" id="" required>
-     </p>
-      </fieldset>
+     <fieldset class="gender-fieldset">
+        <legend class="gender-legend"><i>CHOOSE GENDER *</i></legend>
+        <input type="text" name="gender_trigger" id="gender-trigger" style="position: absolute; opacity: 0; pointer-events: none;">
+        <label for="gender-trigger" class="gender-click-handler"></label>
+        <div class="gender-option">
+            <p>
+                <label>MALE:<input type="radio" name="gender" id="male" required></label>
+                <label>FEMALE:<input type="radio" name="gender" id="female" required></label>
+                <label>OTHER:<input type="radio" name="gender" id="other" required></label>
+            </p>
+        </div>
+     </fieldset>
 
      <p>
         ADDRESS: <textarea name="address" id="" cols="70" rows="6"></textarea> </p>
+        <div class="input-group">
      <P>EMAIL: <input type="email" name="email" id="" required> </P>
      <p>PINCODE: <input type="number" name="pincode" id="" required></p>
-     
-     <h2>CARD INFORMATION</h2><hr>
-     <p> 
+     <p>NUMBER: <input type="number" name="mobile number" id="" required></p>
+     <p>HOUSE NO: <input type="number" name="house number" id="" required></p>
+     </div>
+
+     <h2>CARD INFORMATION</h2>
+     <div class="input-group">
+     <p class="input-item">
       CARD TYPE:
       <select name="card_type" id="" required>
          <option value="">--Sllect A Card Type--</option>
@@ -39,7 +49,7 @@
          <option value="RUPAY">RUPAY</option>
       </select>
      </p>
-     <p>
+     <p class="input-item">
       ACCOUNT TYPE:
       <select name="account type" id="">
         <option value="">--Choose Account--</option>
@@ -48,15 +58,18 @@
        <option value="DABIT">DABIT</option>
       </select>
      </p>
+     </div>
      <fieldset>
-      <legend><i>IMPORTENT INFORMATION</i></legend>
+      <legend><i>IMPORTENT INFORMATION *</i></legend>
+      <div class="input-group">
      <p>CARD NUMBER: <input type="number" name="card number" id="" required>*
-      CVV: <input type="password" name="CVV" id="" required>*
-     </p>
+      CVV: <input type="password" name="CVV" id="" required>*</p>
+     </div>
      </fieldset>
      <p>EXPIRE DATE: <input type="date" name="expire_date" id=""></INPUT></p>
       <input type="submit" value="SUBMIT FORM">
     </form>
-    
+</div>  
+<script src="script.js"></script>
 </body>
 </html>

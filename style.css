@@ -1,49 +1,231 @@
+:root {
+    --primary-color: #178896;
+    --primary-color-dark: #117480;
+    --primary-color-focus: #1e818c;
+    --glow-color: #2ee9e6;
+    --shadow-color: #88c3b8f3;
+    --shadow-color-focus: rgba(23, 135, 150, 0.395);
+    --border-color: #1c7a8679;
+    --border-color-focus: #2ba6b6c0;
+    --border-color-alt: #8ec5ced0;
+    --powered-section: rgb(226, 196, 205);
+}
+
 .top_section {
-    background-color: #178896; /* Same as your sample image */
+    background-color: var(--primary-color); /* Same as your sample image */
     padding: 20px 0;
     text-align: center;
     border: 2px solid rgb(35, 189, 178);
-    border-bottom-left-radius: 25px; 
+    border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    box-shadow: 0 4px 8px 0 #88c3b8f3;
-   
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    box-shadow: 0 4px 8px 0 var(--shadow-color);
+    margin-bottom: 15px;
+    transition: box-shadow 0.4s ease-in-out;
 }
 .top_section:hover{
     box-shadow: inset 5px 5px 18px 5px rgba(100, 245, 245, 0.79);
-    transition: box-shadow 4s ease;
 }
 .powered_section{
-    color: rgb(226, 196, 205);
-    border: 2px solid #8ec5ced0;
+    color: var(--powered-section);
+    border: 2px solid var(--border-color-alt);
     border-radius: 20px;           
     display: inline-block; 
     padding: 3px 18px;        
     background: transparent;
-    box-shadow: inset 0 0 8px #6bfce2f3;
+    box-shadow: inset 0 0 8px var(--glow-color);
+    transition: box-shadow 0.3s ease-in-out;
 }
 .powered_section:hover{
     box-shadow:
-        0px 0px 15px 0px #2ee9e6,
-        inset 2px 2px 10px 0px #2ee9e6;
+        0px 0px 12px 0px var(--glow-color),
+        inset 2px 2px 10px 0px var(--glow-color);
+}
+.gender-fieldset {
+    position: relative;
+    overflow: visible;
+    border-color: var(--border-color); /* Change this value to your desired border color */
+}
+.gender-fieldset:focus-within {
+    border-color: #238e9c98;
+    outline: none;
+    box-shadow: 0px 0px 3px rgba(23, 135, 150, 0.354);  
+    }
+
+.gender-click-handler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+.gender-legend {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 0 12px;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    pointer-events: none;
+    transition: 
+        top 0.4s cubic-bezier(.4,0,.2,1),
+        font-size 0.4s cubic-bezier(.4,0,.2,1),
+        color 0.4s cubic-bezier(.4,0,.2,1);
+    z-index: 2;
+}
+.gender-option {
+    position: relative; /* Required for z-index to work */
+    z-index: 2; /* Place options above the click handler */
+    text-align: center;
+    font-size: 1.1rem;           
+    letter-spacing: 2px;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.4s, transform 0.4s;
+}
+.gender-option label {
+    margin: 0 50px;             
+    font-size: 1rem;           
+}
+.gender-option input[type="radio"] {
+    accent-color: var(--primary-color-dark);
+    transform: scale(1.6);     
+    margin-right: 50px;
+}
+.gender-fieldset:focus-within .gender-legend,
+.gender-fieldset:has(input:checked) .gender-legend {
+    top: 0;
+    font-size: 1rem;
+    color: var(--primary-color-focus);
+}
+.gender-fieldset:focus-within .gender-option,
+.gender-fieldset:has(input:checked) .gender-option {
+    opacity: 1;
+    transform: translateY(0);
 }
 body{
+
+    font-family: 'Inter', sans-serif;
     margin: 0;
+    background-color: #f0f9ff;
+    padding: 10px;
 }
 h1{
     color: rgb(252, 252, 252);
-    border-color:rgb(16, 17, 18);
+    border-color:0px 0px 15px rgb(16, 17, 18);
     text-align:center;
-    text-shadow: 2px 2px 4px #d4d4d487;
+    text-shadow: 2px 2px 5px #7dfbff86;
     margin: 0;
 }
 h2{
-    color: rgb(41, 175, 184);
+    color: var(--primary-color);
     text-align: center;
-    border: 2px solid #117480cf;
+    border: 2px solid var(--primary-color-dark);
     border-radius: 8px;
     display: table;
     padding: 4px 16px;
+    margin: 30px auto;
+    transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
 
-    margin: 12px auto;
-    
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 3px 2px 20px var(--shadow-color-container);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.form-container:hover {
+    transform: scale(1.02);  /* This makes it grow slightly */
+    box-shadow: 5px 5px 25px rgba(32, 223, 223, 0.5); /* This makes the shadow pop */
+}
+
+.input-group {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+.input-item {
+    flex: 1 1 45%;
+}
+textarea{
+    border: 2px solid #1c7a8679;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input[type="text"],
+input[type="email"], 
+input[type="number"], 
+input[type="password"],
+input[type="date"],
+select {
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="number"]:focus,         /*every Container shadows after selecting */
+input[type="password"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--border-color-focus);
+    outline: none;
+    box-shadow: 0 0 6px var(--shadow-color-focus);
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s; 
+}
+
+input[type="submit"]:hover {
+    background-color: var(--primary-color-dark);
+    box-shadow: 0 4px 10px var(--shadow-color-focus);
+}
+
+fieldset {
+    border: 2px solid var(--border-color-alt);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+legend {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+@media (max-width: 640px) {
+    .input-group, .input-item {
+        flex: 1 1 100%; 
+    }
 }

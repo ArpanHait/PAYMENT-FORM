@@ -15,7 +15,11 @@
      <p class="powered_section">Powred By Arp.®</p>
      </div>
      <h2>CONTACT INFORMATION</h2>
-     <p>NAME: <input type="text" name="name" required ></p>
+    
+     <div class="input-group">
+        <p class="input-item">FIRST NAME: <input type="text" name="first_name" required></p>
+        <p class="input-item">LAST NAME: <input type="text" name="last_name" required></p>
+     </div>
 
      <fieldset class="gender-fieldset">
         <legend class="gender-legend"><i>CHOOSE GENDER *</i></legend>
@@ -30,8 +34,8 @@
         </div>
      </fieldset>
 
-     <p> ADDRESS: <textarea name="address" id="" cols="70" rows="6"></textarea> </p>
-        <div class="input-group contact-details">
+     <p> ADDRESS: <textarea name="address" id="" cols="70" rows="5"></textarea> </p>
+        <div class="input-group contact-details"> 
      <P class="EMAIL">EMAIL: <input type="email" name="email" id="" required></P>
      <p class="PINCODE">PINCODE: <input type="number" name="pincode" id="" required></p>
      <p class="NUMBER">NUMBER: <input type="number" name="mobile number" id="" required></p>
@@ -56,20 +60,26 @@
        <option value="SAVINGS">SAVINGS</option>
        <option value="CREDIT">CREDIT</option>
        <option value="DABIT">DABIT</option>
-      </select>
+      </select>                                               
      </p>
      </div>
-     <fieldset>
-      <legend><i>IMPORTENT INFORMATION *</i></legend>
-      <div class="input-group">
-     <p>CARD NUMBER: <input type="number" name="card number" id="" required>*</p>
-      <p>CVV: <input type="password" name="CVV" id="" required>*
-      EXPIRE DATE: <input type="date" name="expire_date" id=""></INPUT></p>
-     </div>
+     <fieldset class="info-fieldset">
+      <legend class="info-legend"><i>IMPORTANT INFORMATION *</i></legend>
+      <input type="text" name="info_trigger" id="info-trigger" style="position: absolute; opacity: 0; pointer-events: none;">
+      <label for="info-trigger" class="info-click-handler"></label>
+      <div class="info-option">
+         <div class="input-group">
+            <p class="input-item">CARD NUMBER: <input type="number" name="card number" id="" required></p>
+            <p class="input-item">CVV: <input type="password" name="CVV" id="" required></p>
+            <P class="input-item">EXPIRE DATE: <input type="date" name="expire_date" id="" required></p>
+            <p class="input-item">HOLDER NAME: <input type="text" name="card holder name" id="" required></p>
+         </div>
+      </div>
      </fieldset>
       <input type="submit" value="SUBMIT FORM">
     </form>
 </div>  
 <script src="script.js"></script>
+<script src="animation.js"></script>
 </body>
 </html>

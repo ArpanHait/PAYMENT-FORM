@@ -14,7 +14,9 @@
     --all-box-shadow:rgba(4, 69, 83, 0.263);
 }
 .top_section {
+    position: relative; /* Added to contain the bubbles */
     background-color: var(--primary-color); 
+    /* z-index: 1; Ensures bubbles appear on top of other content */
     padding: 20px 0;
     text-align: center;
     border: 2px solid rgb(35, 189, 178);
@@ -169,7 +171,7 @@ h2{
     transition: color 0.3s ease-in-out;
     z-index: 1;
     box-shadow: 1px 1px 5px 0px rgba(19, 90, 98, 0.354),
-    inset 1px 0px 4px 0px rgba(19, 90, 98, 0.251);
+    inset 0px 0px 4px 0px rgba(19, 90, 98, 0.251);
 }
 
 .contact-details {
@@ -311,4 +313,18 @@ legend {
     .input-group, .input-item {
         flex: 1 1 100%; 
     }
+}
+
+::placeholder {
+    text-align: center;
+    /* You can add other styles here if you want */
+    /* For example: color: #999; */
+}
+
+/* Styles for hidden trigger inputs */
+#gender-trigger,
+#info-trigger {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }

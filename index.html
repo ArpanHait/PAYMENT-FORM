@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAYMENT FORM</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="animation.CSS">
 </head>
 <body>
    <div class="form-container">
@@ -17,13 +17,13 @@
      <h2>CONTACT INFORMATION</h2>
     
      <div class="input-group">
-        <p class="input-item">FIRST NAME: <input type="text" name="first_name" required></p>
-        <p class="input-item">LAST NAME: <input type="text" name="last_name" required></p>
+        <p class="input-item">FIRST NAME: <input type="text" name="first_name" required placeholder="Your First Name"></p>
+        <p class="input-item">LAST NAME: <input type="text" name="last_name" required placeholder="Your Last Name"></p>
      </div>
 
      <fieldset class="gender-fieldset">
         <legend class="gender-legend"><i>CHOOSE GENDER *</i></legend>
-        <input type="text" name="gender_trigger" id="gender-trigger" style="position: absolute; opacity: 0; pointer-events: none;">
+        <input type="text" name="gender_trigger" id="gender-trigger" title="Expand for gender options">
         <label for="gender-trigger" class="gender-click-handler"></label>
         <div class="gender-option">
             <p>
@@ -34,19 +34,19 @@
         </div>
      </fieldset>
 
-     <p> ADDRESS: <textarea name="address" id="" cols="70" rows="5"></textarea> </p>
+     <p> ADDRESS: <textarea name="address" id="" cols="70" rows="5" placeholder="Your Full Address"></textarea> </p>
         <div class="input-group contact-details"> 
-     <P class="EMAIL">EMAIL: <input type="email" name="email" id="" required></P>
-     <p class="PINCODE">PINCODE: <input type="number" name="pincode" id="" required></p>
-     <p class="NUMBER">NUMBER: <input type="number" name="mobile number" id="" required></p>
-     <p class="HOUSE-NO">HOUSE NO: <input type="number" name="house number" id="" required></p>
+     <P class="EMAIL">EMAIL: <input type="email" name="email" id="" required placeholder="example@email.com"></P>
+     <p class="PINCODE">PINCODE: <input type="number" name="pincode" id="" required placeholder="Enter 6-digit Pincode"></p>
+     <p class="NUMBER">NUMBER: <input type="number" name="mobile number" id="" required placeholder="Your Mobile Number"></p>
+     <p class="HOUSE-NO">HOUSE NO: <input type="number" name="house number" id="" required placeholder="Your House Number"></p>
      </div>
 
      <h2>CARD INFORMATION</h2>
      <div class="input-group">
      <p class="input-item">
-      CARD TYPE:
-      <select name="card_type" id="" required>
+      <label for="card_type">CARD TYPE:</label>
+      <select name="card_type" id="card_type" required>
          <option value="">--Sllect A Card Type--</option>
          <option value="VISA">VISA</option>
          <option value="MASTER CARD">MASTER CARD</option>
@@ -54,8 +54,8 @@
       </select>
      </p>
      <p class="input-item">
-      ACCOUNT TYPE:
-      <select name="account type" id="">
+      <label for="account_type">ACCOUNT TYPE:</label>
+      <select name="account type" id="account_type">
         <option value="">--Choose Account--</option>
        <option value="SAVINGS">SAVINGS</option>
        <option value="CREDIT">CREDIT</option>
@@ -65,14 +65,14 @@
      </div>
      <fieldset class="info-fieldset">
       <legend class="info-legend"><i>IMPORTANT INFORMATION *</i></legend>
-      <input type="text" name="info_trigger" id="info-trigger" style="position: absolute; opacity: 0; pointer-events: none;">
+      <input type="text" name="info_trigger" id="info-trigger" title="Expand for card details">
       <label for="info-trigger" class="info-click-handler"></label>
       <div class="info-option">
          <div class="input-group">
-            <p class="input-item">CARD NUMBER: <input type="number" name="card number" id="" required></p>
-            <p class="input-item">CVV: <input type="password" name="CVV" id="" required></p>
-            <P class="input-item">EXPIRE DATE: <input type="date" name="expire_date" id="" required></p>
-            <p class="input-item">HOLDER NAME: <input type="text" name="card holder name" id="" required></p>
+            <p class="input-item">CARD NUMBER: <input type="number" name="card number" id="" required placeholder="xxxx-xxxx-xxxx-xxxx"></p>
+            <p class="input-item">CVV: <input type="password" name="CVV" id="" required placeholder="xxx"></p>
+            <P class="input-item">EXPIRE DATE: <input type="date" name="expire_date" id="" required placeholder="MM/DD/YYYY"></p>
+            <p class="input-item">HOLDER NAME: <input type="text" name="card holder name" id="" required placeholder="Name on Card"></p>
          </div>
       </div>
      </fieldset>

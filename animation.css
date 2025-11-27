@@ -3,26 +3,60 @@
 .bubble {
     position: absolute;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.25);
+    /* Added a radial gradient for a more 3D, natural look */
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.573), rgba(255, 255, 255, 0.112));
     border-radius: 50%;
-    animation-name: rise;
+    /* Added a subtle glow effect */
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.397);
+    /* The animation-name will now be set by JavaScript */
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     will-change: transform; /* Optimization for animation performance */
 }
 
-@keyframes rise {
+/* New wobble animation that starts by moving left */
+@keyframes wobble-left {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) translateX(0px);
         opacity: 1;
     }
+    33% {
+        transform: translateY(-40px) translateX(-8px);
+    }
+    66% {
+        transform: translateY(-80px) translateX(8px);
+    }
     100% {
-        /* Bubbles will travel 100% of the container height plus an extra 20px */
-        transform: translateY(-120px); 
+        transform: translateY(-120px) translateX(-8px);
         opacity: 0;
     }
 }
 
+/* New wobble animation that starts by moving right */
+@keyframes wobble-right {
+    0% {
+        transform: translateY(0) translateX(0px);
+        opacity: 1;
+    }
+    33% {
+        transform: translateY(-40px) translateX(8px);
+    }
+    66% {
+        transform: translateY(-80px) translateX(-8px);
+    }
+    100% {
+        transform: translateY(-120px) translateX(8px);
+        opacity: 0;
+    }
+}
 
-
-
+/* New style for the particle canvas background */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place particles behind all other content */
+    pointer-events: none;
+}

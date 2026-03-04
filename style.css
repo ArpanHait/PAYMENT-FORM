@@ -328,11 +328,9 @@ legend {
 
 ::placeholder {
     text-align: center;
-    /* You can add other styles here if you want */
-    /* For example: color: #999; */
 }
 
-/* Styles for hidden trigger inputs */
+
 #gender-trigger,
 #info-trigger {
     position: absolute;
@@ -340,7 +338,7 @@ legend {
     pointer-events: none;
 }
 
-/* Keyframe animation for the page background */
+
 @keyframes animated-gradient {
     0% {
         background-position: 0% 50%;

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const payFastContainer = document.querySelector('.top_section');
 
     if (payFastContainer) {
-        const numberOfBubbles = 25; // You can adjust this number
+        const numberOfBubbles = 25; 
 
         for (let i = 0; i < numberOfBubbles; i++) {
             const bubble = document.createElement('div');
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bubble.style.height = `${size}px`;
 
             // Random horizontal position
-            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.left = `${Math.random() * 105 - 2.5}%`;
 
             // Randomly assign one of the wobble animations
             const animationName = Math.random() < 0.5 ? 'wobble-left' : 'wobble-right';

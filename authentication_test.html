@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Step Design</title>
+    <!-- Include your existing CSS files so variables and styles work -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="success.css">
+    <style>
+        /* Force the container to be visible for design purposes */
+        #payment-flow-container { display: block !important; }
+    </style>
+</head>
+<body>
+
+    <div id="payment-flow-container" class="active">
+        <!-- Step 1: Authentication (Set to active) -->
+        <div id="step-auth" class="flow-step active">
+            <div class="auth-loading">
+                <div class="spinner"></div>
+                <p class="auth-text">Authenticating... </p>
+            </div>
+            <div class="looks-good-container">
+                <h2 class="looks-good-text"><span class="emoji-style">🧐</span> Everything Looks good..!</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Simple script to simulate the transition for design preview -->
+    <script>
+        setTimeout(() => {
+            document.querySelector('.looks-good-container').style.display = 'block';
+        }, 2000);
+    </script>
+
+</body>
+</html>

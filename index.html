@@ -6,6 +6,7 @@
     <title>PAYMENT FORM</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animation.CSS">
+    <link rel="stylesheet" href="success.css">
 </head>
 <body>
    <div class="form-container">
@@ -79,7 +80,38 @@
       <input type="submit" value="SUBMIT FORM">
     </form>
 </div>  
-<script src="script.js"></script>
+
+<!-- NEW PAYMENT FLOW CONTAINER (Initially Hidden) -->
+<div id="payment-flow-container">
+    <!-- Step 1: Authentication -->
+    <div id="step-auth" class="flow-step">
+        <div class="auth-loading">
+            <div class="spinner"></div>
+            <p class="auth-text">Your data is Checked and Authenticated successfully.</p>
+        </div>
+        <div class="looks-good-container">
+            <h2 class="looks-good-text"><span class="emoji-style">🧐</span> Everything Looks good..!</h2>
+        </div>
+    </div>
+
+    <!-- Step 2: Amount Entry -->
+    <div id="step-amount" class="flow-step">
+        <h2 style="border:none; box-shadow:none;">ENTER AMOUNT</h2>
+        <div class="amount-wrapper">
+            <span class="currency-symbol">$</span>
+            <input type="number" id="amount-input" placeholder="0.00" min="1">
+        </div>
+        <button id="pay-fast-btn">PAY FAST</button>
+    </div>
+
+    <!-- Step 3: Success -->
+    <div id="step-success" class="flow-step">
+        <div class="success-icon">✔</div>
+        <h1 style="color:var(--primary-color); text-shadow:none;">Hurray! Payment completed. 🤓🥳</h1>
+    </div>
+</div>
+
 <script src="animation.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>

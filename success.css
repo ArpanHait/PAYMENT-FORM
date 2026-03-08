@@ -1,0 +1,162 @@
+/* Container for the new flow - initially hidden */
+#payment-flow-container {
+    display: none;
+    max-width: 900px;
+    width: 90%;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 18px var(--shadow-container);
+    text-align: center;
+    min-height: 400px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+#payment-flow-container.active {
+    display: block;
+    animation: containerFadeIn 0.6s ease-out;
+}
+
+/* Individual Steps */
+.flow-step {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 50%; /* Controls vertical center of text/spinner inside the box */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Keeps content perfectly centered */
+    width: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.flow-step.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%);
+}
+
+/* Step 1: Authentication */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(23, 136, 150, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 25px;
+}
+
+.auth-text {
+    font-size: 1.3rem;
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Step 1: Looks Good Animation State */
+.looks-good-container {
+    display: none; /* Hidden initially */
+    position: absolute; /* Fix: Take out of flow so it doesn't push content up */
+    top: 100%; /* Position it directly below the spinner/text */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
+    margin-left: -21px;
+     /* Add spacing between auth text and looks good text */
+}
+
+.looks-good-text {
+    /* Override global h2 styles to remove border and fix alignment */
+    border: none;
+    box-shadow: none;
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: normal;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: smoothAppear 0.5s ease-out forwards;
+}
+
+.emoji-style {
+    font-style: normal;
+    margin-right: 1px; /* Adds a little space between the emoji and the text */
+}
+
+/* Step 2: Amount Entry */
+.amount-wrapper {
+    margin-bottom: 30px;
+}
+
+.currency-symbol {
+    font-size: 2rem;
+    color: var(--primary-color);
+    vertical-align: middle;
+}
+
+#amount-input {
+    font-size: 2.5rem;
+    border: none;
+    border-bottom: 3px solid var(--primary-color);
+    width: 200px;
+    text-align: center;
+    color: var(--primary-color-dark);
+    outline: none;
+    background: transparent;
+    font-weight: bold;
+}
+
+#pay-fast-btn {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(23, 136, 150, 0.4);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#pay-fast-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-color-dark);
+}
+
+/* Step 3: Success */
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Keyframes */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes containerFadeIn {
+    from { opacity: 0; transform: translate(-50%, -45%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+@keyframes smoothAppear {
+    0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes popIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

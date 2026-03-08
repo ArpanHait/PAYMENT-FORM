@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amount Step Design</title>
+    <!-- Include your existing CSS files so variables and styles work -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="success.css">
+    <style>
+        /* Force the container to be visible for design purposes */
+        #payment-flow-container { display: block !important; }
+    </style>
+</head>
+<body>
+
+    <div id="payment-flow-container" class="active">
+        <!-- Step 2: Amount Entry (Set to active) -->
+        <div id="step-amount" class="flow-step active">
+            <h2 style="border:none; box-shadow:none;">ENTER AMOUNT</h2>
+            <div class="amount-wrapper">
+                <span class="currency-symbol">₹</span>
+                <input type="number" id="amount-input" placeholder="0.00" min="1">
+            </div>
+            <button id="pay-fast-btn">PAY FAST</button>
+        </div>
+    </div>
+
+</body>
+</html>

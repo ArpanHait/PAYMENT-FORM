@@ -16,9 +16,12 @@
     text-align: center;
     min-height: 400px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
+#payment-flow-container:hover{
+     box-shadow: 0px 0px 18px rgba(225, 40, 228, 0.301);
+     transform: translate(-50%, -50%) scale(1.04);
+}
 #payment-flow-container.active {
     display: block;
     animation: containerFadeIn 0.6s ease-out;
@@ -43,14 +46,58 @@
 }
 
 /* Step 1: Authentication */
-.spinner {
-    width: 60px;
-    height: 60px;
-    border: 5px solid rgba(23, 136, 150, 0.2);
+.secure-loader-container {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgba(23, 136, 150, 0.2);
     border-top-color: var(--primary-color);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 25px;
+    animation: spin 1.2s linear infinite;
+}
+
+.secure-lock {
+    width: 50%;
+    height: 50%;
+    overflow: visible;
+}
+
+.lock-group {
+    transform-origin: center center;
+    animation: lockPulse 2s ease-in-out infinite;
+    animation-delay: 0.9s; /* Starts after the snap */
+}
+
+.lock-shackle {
+    fill: none;
+    stroke: var(--primary-color);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    /* Animation: Start open -> Snap shut */
+    transform: translateY(-14px);
+    animation: snapShut 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.lock-body {
+    fill: var(--primary-color);
+}
+
+.lock-keyhole {
+    fill: rgba(255, 255, 255, 0.4);
+}
+.lock-keyhole-circle {
+    fill: rgba(255, 255, 255, 0.4);
 }
 
 .auth-text {
@@ -62,8 +109,8 @@
 
 /* Step 1: Looks Good Animation State */
 .looks-good-container {
-    display: none; /* Hidden initially */
-    position: absolute; /* Fix: Take out of flow so it doesn't push content up */
+    display: none; 
+    position: absolute;
     top: 100%; /* Position it directly below the spinner/text */
     left: 0;
     width: 100%;
@@ -90,9 +137,14 @@
 
 .emoji-style {
     font-style: normal;
-    margin-right: 1px; /* Adds a little space between the emoji and the text */
+    margin-right: 0px; /* Adds a little space between the emoji and the text */
+    font-size: 30px;
 }
 
+.emoji1{
+    font-style: normal;
+    font-size: 25px;
+}
 /* Step 2: Amount Entry */
 .amount-wrapper {
     margin-bottom: 30px;
@@ -144,6 +196,19 @@
 /* Keyframes */
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+@keyframes snapShut {
+    0% { transform: translateY(-14px); opacity: 0; }
+    20% { opacity: 1; }
+    40% { transform: translateY(-14px); } /* Hold open slightly */
+    100% { transform: translateY(0); } /* Snap! */
+}
+
+@keyframes lockPulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(23, 136, 150, 0)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 12px rgba(23, 139, 150, 0.516)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(23, 136, 150, 0)); }
 }
 
 @keyframes containerFadeIn {

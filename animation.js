@@ -1,3 +1,5 @@
+import { startPaymentFlow } from './success.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     const payFastContainer = document.querySelector('.top_section');
 
@@ -109,3 +111,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the animation
     animate();
 });
+
+// --- New Auth Card Logic ---
+export function showDataAuthenticatedCard(userData) {
+    // 1. Destructure Data
+    const { firstName, lastName, email, cardType, cardNumber, expireDate } = userData;
+
+    // 2. Inject Name and Email
+    const nameEl = document.getElementById('summary-name');
+    const emailEl = document.getElementById('summary-email');
+    const expiryEl = document.getElementById('summary-expiry');
+    if(nameEl) nameEl.textContent = `${firstName} ${lastName}`;
+    if(emailEl) emailEl.textContent = email;
+    if(expiryEl) expiryEl.textContent = expireDate;
+
+    // 3. Mask Card Number (Show only last 4)
+    const cardEl = document.getElementById('summary-card');
+    if(cardEl) {
+        const lastFour = cardNumber.slice(-4);
+        cardEl.textContent = `${cardType} •••• •••• •••• ${lastFour}`;
+    }
+
+    // 4. Trigger the visual transition
+    startPaymentFlow();
+}

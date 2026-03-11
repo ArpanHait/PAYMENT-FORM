@@ -1,0 +1,7 @@
+# -- Development / Test Files --
+authentication_test.html
+amount_test.html
+
+# -- OS Generated Files --
+.DS_Store
+Thumbs.db

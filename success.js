@@ -28,7 +28,7 @@ export function startPaymentFlow() {
         setTimeout(() => {
             showStep('step-amount');
         }, 1500); // Display "Looks good" for 1.5 seconds
-    }, 2000); // Display Spinner for 2 seconds
+    }, 5000); // Display Spinner for 5 seconds
 }
 
 function showStep(stepId) {

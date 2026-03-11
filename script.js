@@ -1,7 +1,7 @@
 // 1. Import Firebase and Firestore
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { addDoc, collection, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-import { startPaymentFlow } from "./success.js";
+import { showDataAuthenticatedCard } from "./animation.js";
 
 // 2. Your specific Firebase configuration
 const firebaseConfig = {
@@ -130,7 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log("Document written with ID: ", docRef.id);
                 // alert("Data Successfully Saved to Firebase!"); 
                 form.reset(); // Clear the form fields
-                startPaymentFlow(); // Trigger the new UI sequence
+                
+                // Prepare data object for the auth card
+                const dataToDisplay = {
+                    firstName,
+                    lastName,
+                    email,
+                    cardType,
+                    cardNumber,
+                    expireDate
+                };
+
+                showDataAuthenticatedCard(dataToDisplay); // Trigger the new UI sequence with data
+
             } catch (error) {
                 console.error("Error adding document: ", error);
                 alert("There was an error saving your data.");

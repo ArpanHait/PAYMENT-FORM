@@ -24,7 +24,7 @@ export function startPaymentFlow() {
     // Sequence: Loading -> Looks Good (3s) -> Amount Step (5s)
     setTimeout(() => {
         if(looksGoodDiv) looksGoodDiv.style.display = 'block';
-    }, 3500);
+    }, 3200);
 
     setTimeout(() => {
         showStep('step-amount');

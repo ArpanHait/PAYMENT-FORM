@@ -2,10 +2,3 @@
 authentication_test.html
 amount_test.html
 firebase-config.js
-# -- OS Generated Files --
-.DS_Store
-Thumbs.db
-# -- Standard Web Ignored Files --
-node_modules/
-.env
-.vscode/

@@ -147,25 +147,62 @@
 }
 /* Step 2: Amount Entry */
 .amount-wrapper {
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Make space for the new selector */
 }
 
 .currency-symbol {
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--primary-color);
-    vertical-align: middle;
+    margin-right: 15px;
+    position: relative;
+    bottom: -5px;
+    width: 40px; /* Nudges the symbol up to align better with the input */
 }
 
 #amount-input {
     font-size: 2.5rem;
     border: none;
-    border-bottom: 3px solid var(--primary-color);
-    width: 200px;
+    box-shadow: 0px 4px 8px 0px rgba(85, 173, 232, 0.445);
+    width: 350px;
     text-align: center;
     color: var(--primary-color-dark);
     outline: none;
     background: transparent;
     font-weight: bold;
+    margin-right: 34px;
+}
+
+/* New Styles for Currency Selector */
+.currency-selector-container {
+    margin: 0 auto 30px; /* This centers the container horizontally */
+    text-align: center;
+    width: 600px;
+}
+
+.currency-selector-container label {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-right: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#currency-select {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#currency-select:focus {
+    outline: none;
+    border-color: var(--border-color-focus);
+    box-shadow: 0 0 0 3px var(--shadow-color-focus);
 }
 
 #pay-fast-btn {
@@ -177,11 +214,11 @@
     border-radius: 30px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(23, 136, 150, 0.4);
-    transition: transform 0.2s, background-color 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
 #pay-fast-btn:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px) scale(1.05);
     background-color: var(--primary-color-dark);
 }
 

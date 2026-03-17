@@ -47,6 +47,8 @@ function showStep(stepId) {
 // Initialize Step 2 Button Logic
 document.addEventListener('DOMContentLoaded', () => {
     const payBtn = document.getElementById('pay-fast-btn');
+    const currencySelect = document.getElementById('currency-select');
+    const currencySymbolDisplay = document.getElementById('currency-symbol-display');
     
     if (payBtn) {
         payBtn.addEventListener('click', () => {
@@ -61,5 +63,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 showStep('step-success');
             }, 2000);
         });
+    }
+
+    // Logic to update the currency symbol when the dropdown value changes
+    if (currencySelect && currencySymbolDisplay) {
+        currencySelect.addEventListener('change', (event) => {
+            currencySymbolDisplay.textContent = event.target.value;
+        });
+    }
+
+    // --- Developer Testing Helper ---
+    // Allows showing a step directly via URL, e.g., /index.html?step=step-amount
+    const params = new URLSearchParams(window.location.search);
+    const testStep = params.get('step');
+
+    if (testStep) {
+        // 1. Hide the original form container
+        const originalForm = document.querySelector('.form-container');
+        if (originalForm) {
+            originalForm.style.display = 'none';
+        }
+
+        // 2. Show the new flow container
+        const flowContainer = document.getElementById('payment-flow-container');
+        if (flowContainer) {
+            flowContainer.classList.add('active');
+        }
+
+        // 3. Directly show the requested step
+        showStep(testStep); // e.g., 'step-amount'
     }
 });

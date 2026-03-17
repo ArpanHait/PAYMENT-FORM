@@ -137,8 +137,18 @@
     <div id="step-amount" class="flow-step">
         <h2 style="border:none; box-shadow:none;">ENTER AMOUNT</h2>
         <div class="amount-wrapper">
-            <span class="currency-symbol">$</span>
+            <span id="currency-symbol-display" class="currency-symbol">$</span>
             <input type="number" id="amount-input" placeholder="0.00" min="1">
+        </div>
+        <div class="currency-selector-container">
+            <label for="currency-select">CURRENCY:</label>
+            <select id="currency-select">
+                <option value="$" selected>US Dollar ($)</option>
+                <option value="€">Euro (€)</option>
+                <option value="£">British Pound (£)</option>
+                <option value="¥">Japanese Yen (¥)</option>
+                <option value="₹">Indian Rupee (₹)</option>
+            </select>
         </div>
         <button id="pay-fast-btn">PAY FAST</button>
     </div>

@@ -21,13 +21,19 @@ Payment Form.
 
 ## 🚀 How to Use
 
-Project is In under progress of development.
-
 1.  **Clone the repository:**
     ```bash
     git clone https://github.com/your-username/payment-form.git
     ```
-2.  Navigate to the project directory.
-3.  Open the `index.html` file in your favorite web browser.
+2.  **Navigate to the project directory:**
+    ```bash
+    cd payment-form
+    ```
+3.  **Set up Firebase:**
+    *   Rename `firebase_config.js.example` to `firebase_config.js`.
+    *   Open the new `firebase_config.js` file and replace the placeholder values with your actual Firebase project configuration.
+
+4.  **Open the application:**
+    *   Open `index.html` in your favorite web browser.
 
 --_(●'◡'●)_-.

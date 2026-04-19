@@ -1,6 +1,6 @@
 # Payment Form Project
 
-A simple and visually appealing payment form created using HTML and CSS. This project demonstrates fundamental web development techniques to build a clean and modern user interface for a payment gateway.
+A simple and visually appealing payment form created using HTML,CSS & Java_script. This project demonstrates fundamental web development techniques to build a clean and modern user interface for a payment gateway.
 
 ## 📸 Screenshot
 Payment Form.
